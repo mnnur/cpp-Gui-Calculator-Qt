@@ -62,7 +62,8 @@ void CalculatorWindow::handleButtonClicked()
             double calculationResult;
 
             Calculator* calculator = CalculatorWindow::calculator;
-            calculator->setExpression(lineEditResult->text().toStdString());
+            QString mathExpression = lineEditResult->text().trimmed();
+            calculator->setExpression(mathExpression.toStdString());
             calculationResult = calculator->calculate();
             lineEditResult->setText(QString::number(calculationResult));
         } catch (...) {

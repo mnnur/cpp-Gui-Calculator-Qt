@@ -92,7 +92,7 @@ void Calculator::infixToPostfix() {
     }
 
     // handle negative sign '-'
-    else if (s == "-" && (i == 0 || !decimalDigit(std::string(1, expression[i - 1])))) {
+    else if (s == "-" && (i == 0 || !decimalDigit(std::string(1, expression[i - 1]))) && expression[i - 1] != ')') {
       output += "0 "; // Add a placeholder zero to the output
       stack.push("-"); // Push the negative sign to the stack as a unary operator
     }
